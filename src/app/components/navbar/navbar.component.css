@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #fff; /* Cambia el color de fondo de la barra de navegación */
+  }
+  
+  .navbar-toggler {
+    border: none; /* Elimina el borde del botón del menú hamburguesa */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #333; /* Cambia el color del icono del menú hamburguesa */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333; /* Cambia el color del texto de los enlaces de navegación */
+    font-weight: bold; /* Agrega negrita al texto de los enlaces de navegación */
+    margin: 0 10px; /* Ajusta los márgenes laterales de los enlaces de navegación */
+  }
+  
+
+  @media (max-width: 767px) {
+    .navbar-nav {
+      text-align: center; /* Centra los enlaces de navegación en dispositivos móviles */
+    }
+  
+    .navbar-nav .nav-link {
+      margin: 10px 0; /* Ajusta los márgenes superior e inferior de los enlaces de navegación en dispositivos móviles */
+    }
+  }
