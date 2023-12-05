@@ -26,3 +26,15 @@
       margin: 10px 0; /* Ajusta los márgenes superior e inferior de los enlaces de navegación en dispositivos móviles */
     }
   }
+
+.dropdown-item{
+  cursor: pointer;
+}
+
+.dropdown-item:hover{
+  background: #DCDCDC;
+}
+
+.sesion{
+  margin-right: 25px;
+}

@@ -225,15 +225,13 @@
             <!--Cards-->
             <div class="row row-cols-1 row-cols-md-3">
 
-                <div class="col mb-4">
+                <div class="col mb-4" *ngFor="let product of games">
                     <!-- Card -->
                     <div class="card">
 
                         <!--Card image-->
                         <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://cdn7.tales.dk/products/00166/16641/the-art-and-making-of-hogwarts-legacy-exploring-the-unwritten-wizarding-world.jpg"
-                                alt="Card image cap" height="350">
+                            <img class="card-img-top" [src]="product.img" alt="Card image cap" height="350" />
                             <a href="#!">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -243,296 +241,25 @@
                         <div class="card-body">
 
                             <!--Title-->
-                            <h4 class="card-title">Howarts Legacy</h4>
+                            <h4 class="card-title">{{product.nombre}}</h4>
                             <!--Text-->
-                            <p class="card-text">$80 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            <p class="card-text">
+                                <ng-container
+                                    *ngIf="product.discount !== null && product.discount !== 0; else noDiscount">
+                                    <span class="discounted-price" [ngStyle]="{ 'text-decoration': 'line-through', 'color': 'red'}">
+                                        {{ product.price | currency: 'USD' }}
+                                    </span>
+                                    <span class="final-price" style="margin-left: 10px;">{{ product.discount | currency: 'USD' }}</span>
+                                </ng-container>
+                                <ng-template #noDiscount>
+                                    <span class="final-price">{{ product.price | currency: 'USD' }}</span>
+                                </ng-template>
+                            </p>
                             <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
+                                <div class="col-6"> <button type="button" routerLink="/404" class="btn btn-light-blue btn-md more">See
                                         More</button></div>
 
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.vandal.net/m/106797/marvels-spiderman-2-202212217423412_1.jpg"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Spiderman 2 PS5</h4>
-                            <!--Text-->
-                            <p class="card-text">Coming Soon</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://i0.wp.com/freakelitex.com/wp-content/uploads/2017/01/legend-zelda-breath-wild.jpg?resize=640%2C1037&ssl=1"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Legend Zelda: BotW</h4>
-                            <!--Text-->
-                            <p class="card-text">$70 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="https://pbs.twimg.com/media/FUM7AZEX0AEK6HZ.jpg"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Pokémon Scarlet</h4>
-                            <!--Text-->
-                            <p class="card-text">$60 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://nintenduo.com/wp-content/uploads/2021/12/FNAF-683x1024.webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">FNAF Security Breach</h4>
-                            <!--Text-->
-                            <p class="card-text">$50 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://images-na.ssl-images-amazon.com/images/I/71DNZo1Vw0L._AC_UL600_SR600,600_.jpg"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">TLOU Part 2</h4>
-                            <!--Text-->
-                            <p class="card-text">$40 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.vandal.net/i/ivandal/1200x630/21165/201368114841_1.jpg"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Forza Horizon 5</h4>
-                            <!--Text-->
-                            <p class="card-text">$80 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://pbs.twimg.com/media/DizfPBdUEAAJKVs?format=jpg&name=4096x4096"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Halo Infinite</h4>
-                            <!--Text-->
-                            <p class="card-text">$30 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://i.blogs.es/2c9c70/gta-20v-20portada-20grande/450_1000.webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">GTA V Deluxe</h4>
-                            <!--Text-->
-                            <p class="card-text">$10 USD <span class="ofer">$25 USD</span></p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
+                                <div class="col-6"> <button type="button" routerLink="/soon" class="btn btn-light-blue btn-md">Add
                                         Cart</button></div>
                             </div>
 
@@ -547,28 +274,28 @@
     </div>
     <div class="pagination p1">
         <ul>
-            <a href="#">
+            <a class="pag">
                 <li>&lt;</li>
             </a>
-            <a class="is-active" href="#">
+            <a class="is-active pag">
                 <li>1</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>2</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>3</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>4</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>5</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>6</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>&gt;</li>
             </a>
         </ul>

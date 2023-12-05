@@ -225,15 +225,13 @@
             <!--Cards-->
             <div class="row row-cols-1 row-cols-md-3">
 
-                <div class="col mb-4">
+                <div class="col mb-4" *ngFor="let product of products">
                     <!-- Card -->
                     <div class="card">
 
                         <!--Card image-->
                         <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://www.qloud.com.ar/SITES/IMG/hypergaming-01-2020/117_09-06-2023-01-06-06-dual-rtx4070-12g3.jpg"
-                                alt="Card image cap" height="350">
+                            <img class="card-img-top" [src]="product.img" alt="Card image cap" height="350" />
                             <a href="#!">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -243,402 +241,25 @@
                         <div class="card-body">
 
                             <!--Title-->
-                            <h4 class="card-title">Asus RTX 4070</h4>
+                            <h4 class="card-title">{{product.nombre}}</h4>
                             <!--Text-->
-                            <p class="card-text">$600 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            <p class="card-text">
+                                <ng-container
+                                    *ngIf="product.discount !== null && product.discount !== 0; else noDiscount">
+                                    <span class="discounted-price" [ngStyle]="{ 'text-decoration': 'line-through', 'color': 'red'}">
+                                        {{ product.price | currency: 'USD' }}
+                                    </span>
+                                    <span class="final-price" style="margin-left: 10px;">{{ product.discount | currency: 'USD' }}</span>
+                                </ng-container>
+                                <ng-template #noDiscount>
+                                    <span class="final-price">{{ product.price | currency: 'USD' }}</span>
+                                </ng-template>
+                            </p>
                             <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
+                                <div class="col-6"> <button type="button" routerLink="/404" class="btn btn-light-blue btn-md more">See
                                         More</button></div>
 
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/11185352/PNY-GeForce-RTX-3060-12GB-XLR8-Gaming-REVEL-EPIC-X-RGB-Single-Fan-Graphics-Card-GMR3061N4JCET1BKTP-Brown-Box?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">PNY RTX 3060</h4>
-                            <!--Text-->
-                            <p class="card-text">$389.99 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/20002535/Intel-Core-i9-13th-Gen-i9-13900KF-Tetracosa-core-24-Core-3-GHz-Processor?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Intel I9-13900K</h4>
-                            <!--Text-->
-                            <p class="card-text">$570 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="https://media.gamestop.com/i/gamestop/20003836/AMD-Ryzen-7-7800X3D-8-Core-16-Thread-up-to-5.0GHz-AM5-Gaming-Processor?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">AMD 7 7800X3D</h4>
-                            <!--Text-->
-                            <p class="card-text">$449 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/20001317/AMD-Ryzen-5-7600X-Processor-6-core-12-Thread-up-to-5.3GHz-AM5?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">AMD Ryzen 5 7600X</h4>
-                            <!--Text-->
-                            <p class="card-text">$250 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/11108140?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">PlayStation 5</h4>
-                            <!--Text-->
-                            <p class="card-text">$449 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/11108371/Microsoft-Xbox-Series-X-Console?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Xbox Series X</h4>
-                            <!--Text-->
-                            <p class="card-text">$449 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/11095819/Nintendo-Switch-with-Joy-Con-Controller?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Nintendo Switch</h4>
-                            <!--Text-->
-                            <p class="card-text">$270 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/20004927?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Sony PS VR2</h4>
-                            <!--Text-->
-                            <p class="card-text">$549.99 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/10151926/HyperX-Cloud-Alpha-Pro-Wired-Gaming-Headset-Universal?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">HyperX Headset</h4>
-                            <!--Text-->
-                            <p class="card-text">$24.99 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/20004262/Microsoft-Xbox-Elite-Wireless-Controller-Series-2---Core-Blue?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Series Controller</h4>
-                            <!--Text-->
-                            <p class="card-text">$139.99 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
-                                        Cart</button></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-                </div>
-                <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top"
-                                src="https://media.gamestop.com/i/gamestop/11206353/Skytech-Shiva-2-Gaming-Desktop-PC-i7-12700KF-RTX-3070-8GB-GDDR6-12GB-RAM?$plp-tile3x$&fmt=webp"
-                                alt="Card image cap" height="350">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Gaming Desktop</h4>
-                            <!--Text-->
-                            <p class="card-text">$1199.99 USD</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <div class="row mb-2 text-center">
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">See
-                                        More</button></div>
-
-                                <div class="col-6"> <button type="button" class="btn btn-light-blue btn-md">Add
+                                <div class="col-6"> <button type="button" routerLink="/soon" class="btn btn-light-blue btn-md">Add
                                         Cart</button></div>
                             </div>
 
@@ -655,28 +276,28 @@
     <!--Pagination-->
     <div class="pagination p1">
         <ul>
-            <a href="#">
+            <a class="pag">
                 <li>&lt;</li>
             </a>
-            <a class="is-active" href="#">
+            <a class="is-active pag">
                 <li>1</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>2</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>3</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>4</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>5</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>6</li>
             </a>
-            <a href="#">
+            <a class="pag">
                 <li>&gt;</li>
             </a>
         </ul>

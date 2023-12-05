@@ -1,0 +1,47 @@
+.add-game{
+    
+}
+
+button{
+    height: 40px;
+    width: 150px;
+    font-weight: 500;
+}
+
+.save{
+    background: #008443;
+}
+
+.cancel{
+    background: #E52427;
+}
+
+.discount{
+    color: #E52427;
+}
+
+.edit{
+    background: blue;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+}
+
+.delete{
+    background: #E52427;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.menu{
+    width: 200px;
+    background: #E52427;
+    border: red;
+}
+
+.btn-menu{
+    background: #E52427;
+    width: 350px;
+}

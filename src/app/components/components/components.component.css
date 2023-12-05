@@ -69,3 +69,29 @@ li, a{
     border-radius: 100%;
     color: #fff;
 }
+
+
+button{
+    border: 1px solid black;
+    font-weight: 500;
+}
+
+.more:hover{
+    background: blue;
+    border: 1px solid lightskyblue;
+}
+
+button:hover{
+    border: 1px solid yellowgreen;
+    background: yellow;
+}
+
+.pag{
+    cursor: pointer;
+    border-radius: 100%;
+    margin-left: 5px;
+}
+
+.pag:hover{
+    background: #2ecc71;
+}

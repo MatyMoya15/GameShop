@@ -21,5 +21,31 @@
                 </li>
             </ul>
         </div>
+
+        <div class="sesion">
+          <div *ngIf="!isLoggedIn">
+            <!-- Mostrar este bloque si el usuario no está autenticado -->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" routerLink="login" data-bs-toggle="dropdown" aria-expanded="false">
+                Login <i class="fa-regular fa-user"></i>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="isLoggedIn">
+            <!-- Mostrar este bloque si el usuario está autenticado -->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ username }} <i class="fa-regular fa-user"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item">My profile <i class="fa-regular fa-address-card"></i></a></li>
+                <li><a class="dropdown-item" routerLink="admin">Administer <i class="fa-regular fa-pen-to-square"></i></a></li>
+                <li><a class="dropdown-item" (click)="logout()">Log Out <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+        
     </div>
 </nav>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <!-- Botón de retorno -->
+    <button class="btn btn-primary mt-3" (click)="goBack()">Volver</button>
+  </div>
+
+  <div class="row mt-3">
+    <!-- Tarjeta de producto -->
+    <div class="card">
+      <div class="row" *ngFor="let product of products">
+        <!-- Imagen a la izquierda -->
+        <div class="col-md-6">
+          <img [src]="product.img" class="card-img-top" alt="Product Image">
+        </div>
+        
+        <!-- Detalles del producto a la derecha -->
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.nombre }}</h5>
+            <p class="card-text">Precio: {{ product.price | currency: 'USD' }}</p>
+            
+            <!-- Precio con descuento si existe -->
+            <ng-container *ngIf="product.discount !== null && product.discount !== 0; else noDiscount">
+              <p class="card-text discounted-price">
+                Precio con descuento: {{ product.discount | currency: 'USD' }}
+              </p>
+            </ng-container>
+            
+            <!-- Precio original si hay descuento -->
+            <ng-template #noDiscount>
+              <p class="card-text">Precio original: {{ product.price | currency: 'USD' }}</p>
+            </ng-template>
+
+            <!-- Botones -->
+            <button class="btn btn-primary">Agregar al carrito</button>
+            <button class="btn btn-secondary">Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
