@@ -1,40 +1,76 @@
+/* General styles for navbar */
 .navbar {
-    background-color: #fff; /* Cambia el color de fondo de la barra de navegación */
+  background-color: #f8f9fa; /* Light background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.navbar-toggler {
+  border: none; /* Remove border from the hamburger button */
+}
+
+.navbar-toggler-icon {
+  background-color: #333; /* Dark color for the hamburger icon */
+}
+
+.navbar-nav .nav-link {
+  color: #333; /* Dark color for the navigation links */
+  font-weight: bold; /* Bold text for the navigation links */
+  margin: 0 15px; /* Adjust side margins for the navigation links */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+/* Center the navigation links on smaller screens */
+@media (max-width: 767px) {
+  .navbar-nav {
+      text-align: center;
   }
-  
-  .navbar-toggler {
-    border: none; /* Elimina el borde del botón del menú hamburguesa */
-  }
-  
-  .navbar-toggler-icon {
-    background-color: #333; /* Cambia el color del icono del menú hamburguesa */
-  }
-  
+
   .navbar-nav .nav-link {
-    color: #333; /* Cambia el color del texto de los enlaces de navegación */
-    font-weight: bold; /* Agrega negrita al texto de los enlaces de navegación */
-    margin: 0 10px; /* Ajusta los márgenes laterales de los enlaces de navegación */
+      margin: 10px 0;
   }
-  
-
-  @media (max-width: 767px) {
-    .navbar-nav {
-      text-align: center; /* Centra los enlaces de navegación en dispositivos móviles */
-    }
-  
-    .navbar-nav .nav-link {
-      margin: 10px 0; /* Ajusta los márgenes superior e inferior de los enlaces de navegación en dispositivos móviles */
-    }
-  }
-
-.dropdown-item{
-  cursor: pointer;
 }
 
-.dropdown-item:hover{
-  background: #DCDCDC;
-}
-
-.sesion{
+.session {
   margin-right: 25px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+}
+
+/* Styles for the login button */
+.btn-secondary {
+  background-color: #007bff; /* Vibrant blue background color */
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for a more prominent look */
+  color: #fff; /* White text color */
+  font-weight: bold; /* Bold text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover and focus effects */
+}
+
+.btn-secondary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.btn-secondary:focus {
+  background-color: #0056b3; /* Darker blue on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus outline */
+}
+
+/* Add some space around the logo */
+.logo-container img {
+  margin-right: 10px;
+  margin-left: 25px;
 }
