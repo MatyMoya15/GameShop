@@ -26,7 +26,7 @@ export class AuthService {
   login(email: string, password: string): Observable<void> {
     this.isAuthenticating = true;
 
-    return this.http.post<any>('http://localhost:4000/api/usuarios/login', { email, password })
+    return this.http.post<any>('https://server-gameshop.onrender.com/api/usuarios/login', { email, password })
       .pipe(
         map(response => {
           const token = response.token;

@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 })
 export class ProductsService {
 
-  private backendUrl = 'http://localhost:4000';
+  private backendUrl = 'https://server-gameshop.onrender.com';
 
   constructor(private http: HttpClient) {}
 
